@@ -1,0 +1,67 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<br>
+
+<div class="container my3 wrap">
+    
+<div class="card bg-dark text-white content-wrapper">
+    <div class="card-header">{{titulo}}</div>
+    <div class="card-body">
+        
+        <form >
+            <div class="form-group row">
+                <label for="nombre" class="col-form-label col-sm-2">Nombre</label>
+                <div>
+                    <input type="text" class="form-control" [(ngModel)]="agente.nombre" name="nombre">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="apellido" class="col-form-label col-sm-2">Apellido</label>
+                <div>
+                    <input type="text" class="form-control" [(ngModel)]="agente.apellido" name="apellido">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="email" class="col-form-label col-sm-2">Email</label>
+                <div>
+                    <input type="text" class="form-control" [(ngModel)]="agente.email" name="email">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="apellido" class="col-form-label col-sm-2">Telefono</label>
+                <div>
+                    <input required type="text" class="form-control" [(ngModel)]="agente.telefono" name="telefono">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="apellido" class="col-form-label col-sm-2">Username</label>
+                <div>
+                    <input type="text" class="form-control" [(ngModel)]="agente.username" name="username">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="apellido" class="col-form-label col-sm-2">Password</label>
+                <div>
+                    <input type="text" class="form-control" [(ngModel)]="agente.password" name="password">
+                </div>
+            </div>
+
+            <br>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <button class="btn btn-primary" role="button" (click)="create()" *ngIf="!agente.id else elseBlock" >Crear</button>
+
+                    <ng-template #elseBlock>
+                        <button class="btn btn-primary" role="button" (click)="update()" >Editar</button>
+                    </ng-template>
+                </div>
+            </div>     
+        </form>
+        <br>
+    </div>
+</div>
+</div>

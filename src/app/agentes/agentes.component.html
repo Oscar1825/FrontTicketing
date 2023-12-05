@@ -1,0 +1,53 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<br>
+
+<div class="container my3 wrap">
+
+    <div class="card border-dark mb-3 content-wrapper" >
+        <div class="card-header">Agentes</div>
+        <div class="card-body text-dark">
+          <h3 class="card-title">Listado de agentes</h3>
+          <br>
+            <br>
+            <div class="my-2 text-left">
+                <button class="btn btn-rounded btn-primary " [routerLink]="['/agentes/form']">Agregar Agente</button>
+            </div>
+    
+            <div *ngIf="agentes?.length == 0" class="alert alert-danger">
+                No hay registros en la base de datos :[
+            </div>
+    
+            <table class="table table-bordered table-strped" *ngIf="agentes?.length>0">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>email</th>
+                        <th>Fecha</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let agente of agentes">
+                        <td>{{agente.id}}</td>
+                        <td>{{agente.nombre}}</td>
+                        <td>{{agente.apellido}}</td>
+                        <td>{{agente.email}}</td>
+                        <td>{{agente.createAt}}</td>
+                        <td>
+                            <button [routerLink]="['/agentes/form',agente.id]" class="btn btn-primary">Editar</button>
+                        </td>
+                        <td>
+                            <button name="eliminar" (click)='delete(agente)' class="btn btn-danger">Eliminar</button>
+                        </td>
+    
+                    </tr>
+                </tbody>
+            </table>
+    
+        </div>
+      </div>
+</div>
